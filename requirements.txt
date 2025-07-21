@@ -21,14 +21,15 @@ bcrypt==4.1.2
 # Utilities
 python-dotenv==1.0.0
 python-multipart==0.0.6
-python-magic-bin==0.4.14
+# Use python-magic for Linux, python-magic-bin for Windows
+python-magic==0.4.27
 
-# AI/ML packages - compatible with Python 3.12
-numpy==1.26.4
+# AI/ML packages - updated for compatibility
+numpy>=1.24.0
 openai==1.6.1
-langchain==0.0.350
-langchain-openai==0.0.2
-tiktoken==0.5.2
+langchain==0.1.0
+langchain-openai==0.0.5
+tiktoken==0.8.0
 
 # Use pre-compiled wheels to avoid build issues
 --find-links https://download.pytorch.org/whl/torch_stable.html
