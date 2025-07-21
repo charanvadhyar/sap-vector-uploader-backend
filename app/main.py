@@ -31,6 +31,7 @@ app = FastAPI(
 origins = [
     "http://localhost:3000",  # Frontend URL
     "http://localhost:8000",  # Backend URL for development
+    "https://sap-vector-uploader-frontend.vercel.app"
 ]
 
 app.add_middleware(
