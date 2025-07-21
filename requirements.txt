@@ -1,0 +1,34 @@
+# Core FastAPI and web server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Database
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.10
+alembic==1.12.1
+pgvector==0.2.4
+
+# Pydantic and validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
+email-validator==2.1.0
+
+# Authentication and security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.1.2
+
+# Utilities
+python-dotenv==1.0.0
+python-multipart==0.0.6
+python-magic-bin==0.4.14
+
+# AI/ML packages - compatible with Python 3.12
+numpy==1.26.4
+openai==1.6.1
+langchain==0.0.350
+langchain-openai==0.0.2
+tiktoken==0.5.2
+
+# Use pre-compiled wheels to avoid build issues
+--find-links https://download.pytorch.org/whl/torch_stable.html

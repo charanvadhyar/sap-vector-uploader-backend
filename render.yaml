@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: sap-fico-uploader-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sap-fico-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+
+databases:
+  - name: sap-fico-db
+    databaseName: sap_fico_uploader
+    user: sap_fico_user
