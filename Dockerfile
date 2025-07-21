@@ -4,12 +4,11 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    gcc \
-    g++ \
-    libmagic1 \
-    libmagic-dev \
+# Install system dependencies with optimized commands to reduce build time
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+    libmagic1 libmagic-dev \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
