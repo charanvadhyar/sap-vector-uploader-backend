@@ -8,6 +8,8 @@ from ..db.database import Base
 
 # Import and register the vector type with SQLAlchemy
 try:
+    import pgvector.sqlalchemy
+    # Register pgvector with SQLAlchemy
     from pgvector.sqlalchemy import Vector
 except ImportError:
     # If pgvector is not installed, define a placeholder for development
