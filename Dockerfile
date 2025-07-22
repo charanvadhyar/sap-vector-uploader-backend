@@ -26,11 +26,5 @@ RUN mkdir -p uploads
 # Expose port
 EXPOSE 8000
 
-# Create a simple startup script with proper variable handling
-RUN echo '#!/bin/bash' > /app/start.sh && \
-    echo 'PORT=${PORT:-8000}' >> /app/start.sh && \
-    echo 'exec uvicorn app.main:app --host 0.0.0.0 --port $PORT' >> /app/start.sh && \
-    chmod +x /app/start.sh
-
-# Run the startup script
-CMD ["/app/start.sh"]
+# Use shell form CMD for proper variable expansion
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
