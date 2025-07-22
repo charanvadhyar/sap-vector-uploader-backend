@@ -18,3 +18,4 @@ openai==1.6.1
 tiktoken==0.5.2
 langchain==0.0.335
 langchain-community==0.0.16
+pgvector==0.2.3
